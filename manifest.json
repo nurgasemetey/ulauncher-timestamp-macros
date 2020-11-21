@@ -1,7 +1,7 @@
 {
   "required_api_version": "^2.0.0",
   "name": "Timestamp macros",
-  "description": "Copy to clipboard most used timedate formats",
+  "description": "Copy to clipboard the most used timedate formats",
   "developer_name": "Nurgazy Nazhimidinov",
   "icon": "images/icon.png",
   "options": {
