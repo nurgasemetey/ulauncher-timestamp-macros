@@ -31,10 +31,15 @@ class KeywordQueryEventListener(EventListener):
 
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='HH:mm',
-                                         description='{0:%H-%M}'.format(datetime.datetime.now()),
+                                         description='{0:%H:%M}'.format(datetime.datetime.now()),
                                          on_enter=CopyToClipboardAction(
-                                             '{0:%H-%M}'.format(datetime.datetime.now()))))
+                                             '{0:%H:%M}'.format(datetime.datetime.now()))))
 
+        items.append(ExtensionResultItem(icon='images/icon.png',
+                                         name='YYYY-MM-DD HH:mm',
+                                         description='{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()),
+                                         on_enter=CopyToClipboardAction(
+                                             '{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()))))
         return RenderResultListAction(items)
 
 
