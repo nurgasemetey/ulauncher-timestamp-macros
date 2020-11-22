@@ -58,6 +58,14 @@ class KeywordQueryEventListener(EventListener):
                                          description=current_time_interval,
                                          on_enter=CopyToClipboardAction(
                                              current_time_interval)))
+
+        items.append(ExtensionResultItem(icon='images/icon.png',
+                                         name='HH1-HH2: HH:mm',
+                                         description='%s: %s' % (current_time_interval,'{0:%H:%M}'.format(datetime.datetime.now())),
+                                         on_enter=CopyToClipboardAction(
+                                             '%s: %s' % (current_time_interval,'{0:%H:%M}'.format(datetime.datetime.now())))))
+        
+        
         return RenderResultListAction(items)
 
 
