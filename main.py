@@ -40,6 +40,24 @@ class KeywordQueryEventListener(EventListener):
                                          description='{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()),
                                          on_enter=CopyToClipboardAction(
                                              '{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()))))
+
+        now = datetime.datetime.now()
+        time_intervals = [
+            (0, 3), (3, 6), (6, 9), (9, 12), (12, 15), (15, 18), (18, 21), (21,)
+        ]
+        current_time_interval = ''
+        for i in time_intervals:
+            if i[0] == 21:
+                current_time_interval = '21-24'
+                break
+            if i[0] <= now.hour and now.hour < i[1]:
+                current_time_interval = '{}-{}: '.format(i[0], i[1])
+                break
+        items.append(ExtensionResultItem(icon='images/icon.png',
+                                         name='HH1-HH2',
+                                         description=current_time_interval,
+                                         on_enter=CopyToClipboardAction(
+                                             current_time_interval)))
         return RenderResultListAction(items)
 
 
