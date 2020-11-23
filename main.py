@@ -51,7 +51,7 @@ class KeywordQueryEventListener(EventListener):
                 current_time_interval = '21-24'
                 break
             if i[0] <= now.hour and now.hour < i[1]:
-                current_time_interval = '{}-{}: '.format(i[0], i[1])
+                current_time_interval = '{}-{}'.format(i[0], i[1])
                 break
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='HH1-HH2',
