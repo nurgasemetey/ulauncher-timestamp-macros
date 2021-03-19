@@ -22,22 +22,23 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         items = []
         logger.info('preferences %s' % json.dumps(extension.preferences))
-
-        print('{0:%Y-%m-%d}'.format(datetime.datetime.now()))
+        # data = event.get_data()
+        # print("my event", event.get_keyword())
+        # print('{0:%Y-%m-%d}'.format(datetime.datetime.now()))
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='YYYY-MM-DD',
-                                         description='{0:%Y-%m-%d}'.format(datetime.datetime.now()),
+                                         description='{0:%Y-%m-%d} will be copied to clipboard on click'.format(datetime.datetime.now()),
                                          on_enter=CopyToClipboardAction('{0:%Y-%m-%d}'.format(datetime.datetime.now()))))
 
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='HH:mm',
-                                         description='{0:%H:%M}'.format(datetime.datetime.now()),
+                                         description='{0:%H:%M} will be copied to clipboard on click'.format(datetime.datetime.now()),
                                          on_enter=CopyToClipboardAction(
                                              '{0:%H:%M}'.format(datetime.datetime.now()))))
 
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='YYYY-MM-DD HH:mm',
-                                         description='{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()),
+                                         description='{0:%Y-%m-%d %H:%M} will be copied to clipboard on click'.format(datetime.datetime.now()),
                                          on_enter=CopyToClipboardAction(
                                              '{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()))))
 
@@ -55,13 +56,13 @@ class KeywordQueryEventListener(EventListener):
                 break
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='HH1-HH2',
-                                         description=current_time_interval,
+                                         description=current_time_interval + " will be copied to clipboard on click",
                                          on_enter=CopyToClipboardAction(
                                              current_time_interval)))
 
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='HH1-HH2: HH:mm',
-                                         description='%s: %s' % (current_time_interval,'{0:%H:%M}'.format(datetime.datetime.now())),
+                                         description='%s: %s' % (current_time_interval,'{0:%H:%M} will be copied to clipboard on click'.format(datetime.datetime.now())),
                                          on_enter=CopyToClipboardAction(
                                              '%s: %s' % (current_time_interval,'{0:%H:%M}'.format(datetime.datetime.now())))))
         
