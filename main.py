@@ -42,6 +42,10 @@ class KeywordQueryEventListener(EventListener):
                                          on_enter=CopyToClipboardAction(
                                              '{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()))))
 
+        items.append(ExtensionResultItem(icon='images/icon.png',
+                                         name='YYYYMMDD',
+                                         description='Enter to copy to the clipboard',
+                                         on_enter=CopyToClipboardAction('{0:%Y%m%d}'.format(datetime.datetime.now()))))
         now = datetime.datetime.now()
         time_intervals = [
             (0, 3), (3, 6), (6, 9), (9, 12), (12, 15), (15, 18), (18, 21), (21,)
